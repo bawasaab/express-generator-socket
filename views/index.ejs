@@ -7,5 +7,21 @@
   <body>
     <h1><%= title %></h1>
     <p>Welcome to <%= title %></p>
+
+    <!-- STEP 5 starts here -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // socket implementation 4 starts
+      var socket = io();
+      socket.on('connect', () => {
+        socket_id =  socket.id; // an alphanumeric id...
+        console.log('socket_id',socket_id);
+
+        let msg = 'Hello socket';
+        socket.emit('message', msg);
+      });
+    </script>
+    <!-- STEP 5 ends here -->
   </body>
 </html>
