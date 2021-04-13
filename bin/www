@@ -4,9 +4,18 @@
  * Module dependencies.
  */
 
+/**
+ * socket step 3 starts
+ */
+// var app = require('../app');
+// var debug = require('debug')('pro:server');
+// var http = require('http');
 var app = require('../app');
-var debug = require('debug')('pro:server');
+var debug = require('debug')('socketiotest:server');
 var http = require('http');
+/**
+ * socket step 3 ends
+ */
 
 /**
  * Get port from environment and store in Express.
@@ -18,8 +27,14 @@ app.set('port', port);
 /**
  * Create HTTP server.
  */
-
-var server = http.createServer(app);
+/**
+ * socket step 4 starts
+ */
+// var server = http.createServer(app);
+var server = require("../app").server;
+/**
+ * socket step 4 ends
+ */
 
 /**
  * Listen on provided port, on all network interfaces.
