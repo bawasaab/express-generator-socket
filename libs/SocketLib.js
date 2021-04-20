@@ -1,4 +1,5 @@
 let $this;
+let $socket;
 
 module.exports = class SocketLib {
 
@@ -9,6 +10,7 @@ module.exports = class SocketLib {
 
     connection( socket ) {
 
+        $socket = socket;
         console.log('inside socket connect');
         socket.on( 'disconnect', $this.disconnect );
         socket.on( 'message', $this.message );
@@ -21,5 +23,9 @@ module.exports = class SocketLib {
     message( socket ) {
         console.log('inside message');
         console.log('message socket details', socket);
+
+        setInterval( () => {
+            $socket.emit( 'message',  socket);
+        },1000)
     }
 }
