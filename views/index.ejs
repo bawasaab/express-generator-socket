@@ -21,6 +21,10 @@
         let msg = 'Hello socket';
         socket.emit('message', msg);
       });
+
+      socket.on('message', ( data ) => {
+        console.log('on message data', data);
+      });
     </script>
     <!-- STEP 5 ends here -->
   </body>
